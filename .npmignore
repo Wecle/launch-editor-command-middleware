@@ -1,0 +1,9 @@
+examples/
+.gitignore
+.git/
+.idea/
+.vscode/
+*.log
+coverage/
+test/
+.DS_Store

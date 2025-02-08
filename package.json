@@ -1,0 +1,25 @@
+{
+  "name": "launch-editor-command-middleware",
+  "version": "1.0.0",
+  "description": "A webpack plugin to launch your editor with custom configuration",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wecle/launch-editor-command-middleware.git"
+  },
+  "author": "Wecle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wecle/launch-editor-command-middleware/issues"
+  },
+  "homepage": "https://github.com/Wecle/launch-editor-command-middleware#readme",
+  "dependencies": {
+    "launch-editor-middleware": "^2.9.1"
+  },
+  "peerDependencies": {
+    "webpack": "^3.0.0 || ^4.0.0 || ^5.0.0"
+  }
+}
