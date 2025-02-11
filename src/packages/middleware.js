@@ -1,13 +1,11 @@
 const launchMiddleware = require('launch-editor-middleware')
+const { getEditor } = require('../utils/utils')
 
 class EditorMiddleware {
   constructor(options = {}) {
-    const args = process.argv.slice(2)
-    const editorArg = args.find(arg => arg.startsWith('--editor='))
-
     this.options = Object.assign({
       route: '/__open-in-editor',
-      editor: editorArg ? editorArg.split('=')[1] : process.env.EDITOR || 'code',
+      editor: getEditor(),
       srcRoot: process.cwd(),
       onErrorCallback: (fileName, err) => {
         console.log(`Devtools Open File ${fileName} Error`, err)
@@ -16,10 +14,12 @@ class EditorMiddleware {
   }
 
   setup (app) {
-    app.use(this.options.route, launchMiddleware(
-      this.options.editor,
-      this.options.srcRoot,
-      this.options.onErrorCallback
+    const { route, editor, srcRoot, onErrorCallback } = this.options
+
+    app.use(route, launchMiddleware(
+      editor,
+      srcRoot,
+      onErrorCallback
     ))
   }
 }

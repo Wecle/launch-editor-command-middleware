@@ -1,9 +1,14 @@
 {
   "name": "launch-editor-command-middleware",
   "version": "1.0.0",
-  "description": "A webpack plugin to launch your editor with custom configuration",
-  "main": "src/index.js",
+  "description": "A command middleware to launch your editor with custom configuration",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,9 +22,20 @@
   },
   "homepage": "https://github.com/Wecle/launch-editor-command-middleware#readme",
   "dependencies": {
+    "launch-editor": "^2.9.1",
     "launch-editor-middleware": "^2.9.1"
   },
-  "peerDependencies": {
-    "webpack": "^3.0.0 || ^4.0.0 || ^5.0.0"
+  "devDependencies": {
+    "@babel/core": "^7.26.8",
+    "@babel/preset-env": "^7.26.8",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "rollup": "^4.34.6",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }

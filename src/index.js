@@ -1,6 +1,7 @@
-const EditorMiddleware = require('./middleware')
+const EditorMiddleware = require('./packages/middleware')
+const openInEditor = require('./packages/open-in-editor')
 
-function createEditorLauncher (options = {}) {
+exports.createEditorLauncher = function (options = {}) {
   const middleware = new EditorMiddleware(options)
 
   return {
@@ -9,6 +10,4 @@ function createEditorLauncher (options = {}) {
   }
 }
 
-module.exports = {
-  createEditorLauncher
-}
+exports.openInEditor = openInEditor
